@@ -1,4 +1,4 @@
-# License Herald
+# ![License Herald Logo](images/Herald.png) License Herald
 License Herald makes it easy to retrive the license information of the components used in your .NET project.
 
 * [Installation](#installation)
@@ -15,10 +15,10 @@ License Herald makes it easy to retrive the license information of the component
 ### For the component developper
 First, you need to install the LicenseHerald package (see [Installation]("installation)).
 
-Then you need to add in your project a public resource file, with a string resource containing the text of your license.
+Then you need to add  a public resource file in your project, and a string resource containing the text of your license.
 ![Public resource file](docs/PublicResource.png)
 
-Finally, in your `AssemblyInfo.cs` file, add a reference to the License Herald namespace and the ComponentHerald attribute :
+Finally, in your `AssemblyInfo.cs` file (for .NET Framework), or in any code file (for .NET Standard), add a reference to the License Herald namespace and the ComponentHerald attribute :
 ```csharp
 using JereckNET.LicenseHerald;
 ...
@@ -40,21 +40,9 @@ using JereckNET.LicenseHerald.Properties;
 ### For the component consumer
 First, you need to install the LicenseHerald package (see [Installation]("#installation)).
 
-Anywhere in your code, you can call the extension method `GetLicensedComponent()` added o the `Assembly` class.
+Anywhere in your code, you can call the extension method `GetLicensedComponent()` added to the `Assembly` class.
 
 That method will iterate through the target assembly and all of its referenced assemblies and will return a `IList<LicensedComponent>` value.
-
-The easiest way is to call that method on your running assembly :
-```csharp
-static class Program {
-    public static IList<LicensedComponent> Components {
-        get {
-            return Assembly.GetExecutingAssembly().GetLicensedComponent();
-        }
-    }
-    ...
-}
-```
 
 The `LicensedComponent` class has four public properties :
 

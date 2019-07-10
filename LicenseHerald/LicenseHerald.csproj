@@ -16,6 +16,8 @@
     <RepositoryUrl>https://github.com/JereckNET/LicenseHerald.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Description>Quickly advertise the licenses of the components used in your project.</Description>
+    <PackageIconUrl>https://raw.githubusercontent.com/JereckNET/LicenseHerald/master/images/Herald.png</PackageIconUrl>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
