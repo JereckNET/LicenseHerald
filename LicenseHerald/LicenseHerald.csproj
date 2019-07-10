@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Olivier PIRLET</Authors>
+    <Company>Jereck.NET Consulting</Company>
+    <PackageId>JereckNET.LicenseHerald</PackageId>
+    <Product>License Herald</Product>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>LicenseHerald.snk</AssemblyOriginatorKeyFile>
+    <Copyright>Copyright © Jereck.NET Consulting 2019</Copyright>
+    <PackageProjectUrl>https://github.com/JereckNET/LicenseHerald</PackageProjectUrl>
+    <PackageTags>Licences;</PackageTags>
+    <PackageLicenseUrl>https://github.com/JereckNET/LicenseHerald/blob/master/LICENSE.md</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/JereckNET/LicenseHerald.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Quickly advertise the licenses of the components used in your project.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
