@@ -11,6 +11,8 @@ namespace JereckNET.LicenseHerald {
             if (!_cache.ContainsKey(sourceAssemblyName)) {
                 List<LicensedComponent> components = new List<LicensedComponent>();
 
+                components.AddRange(LicensedComponent.FromAssembly(sourceAssembly));
+
                 foreach (AssemblyName referencedAssemblyName in sourceAssembly.GetReferencedAssemblies()) {
                     Assembly referencedAssembly = Assembly.Load(referencedAssemblyName);
 

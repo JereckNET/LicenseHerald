@@ -5,8 +5,10 @@ using System.Resources;
 namespace JereckNET.LicenseHerald {
     [AttributeUsage(AttributeTargets.Assembly)]
     public class ComponentHeraldAttribute : Attribute {
+
+
         private readonly string name;
-        private readonly Type component;
+        private readonly Assembly assembly;
         private readonly Type resources;
         private readonly string homePage;
         private readonly string licenseKey;
@@ -16,7 +18,7 @@ namespace JereckNET.LicenseHerald {
                 ResourceManager rm = new ResourceManager(resources.FullName, resources.Assembly);
                 string license = rm.GetString(licenseKey);
 
-                Version componentVersion = Assembly.GetAssembly(component).GetName().Version;
+                Version componentVersion = assembly.GetName().Version;
 
                 return new LicensedComponent(name, componentVersion, homePage, license);
             }
@@ -24,7 +26,7 @@ namespace JereckNET.LicenseHerald {
 
         public ComponentHeraldAttribute(string Name, Type Component, string HomePage, Type Resources, string LicenseKey) {
             name = Name;
-            component = Component;
+            assembly = Assembly.GetAssembly(Component);
             homePage = HomePage;
             resources = Resources;
             licenseKey = LicenseKey;
