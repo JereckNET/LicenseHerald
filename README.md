@@ -1,14 +1,26 @@
 # ![License Herald Logo](images/Herald.png) License Herald
+
 License Herald makes it easy to retrive the license information of the components used in your .NET project.
 
 * [Installation](#installation)
 * [User Guide](#user-guide)
   * [For the component developper](#for-the-component-developper)
   * [For the component consumer](#for-the-component-consumer)
+  * [Components not using LicenceHerald](#components-not-using-LicenceHerald)
 * [License](#license)
 
 ## Installation
-//TODO
+
+| Component                     | Package                                                                                                                                              |
+|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `JereckNET.LicenseHerald` | [![LicenseHerald NuGet Package](https://img.shields.io/nuget/v/JereckNET.LicenseHerald.svg)](https://www.nuget.org/packages/JereckNET.LicenseHerald) |
+
+Install License Herald by searching for 'LicenseHerald'  in the NuGet package manager, or using the Package Manager Console:
+
+```
+PM > Install-Package JereckNET.LicenseHerald
+```
+
 
 ## User Guide
 
@@ -28,13 +40,12 @@ using JereckNET.LicenseHerald;
 #### Sample `AssemblyInfo.cs`
 ```csharp
 using JereckNET.LicenseHerald;
-using JereckNET.LicenseHerald.Properties;
 ...
-[assembly: ComponentHerald("License Herald", 
-    typeof(ComponentHeraldAttribute), 
-    "https://github.com/JereckNET/LicenseHerald", 
-    typeof(Resources), 
-    nameof(Resources.LicenseHerald_License))]
+[assembly: ComponentHerald("My Project", 
+    typeof(MyNamespace.MyProjectClass), 
+    "https://www.exemple.com/MyProject", 
+    typeof(MyProject.Properties.Resources), 
+    nameof(MyProject.Properties.Resources.MyProject_License))]
 ```
 
 ### For the component consumer
@@ -53,12 +64,14 @@ Version | The version of the component, directly extracted from the component's 
 HomePage | The project homepage url, as described in the component's assembly's ComponentHerald attribute ;
 License | The text of the component's license, extracted from the component's public resource.
 
-### Sample consumer usage
+#### Sample consumer usage
 ![Sample "Licenses" form ](docs/LicenseForm.png)
 
 As `GetLicensedComponent()`returns an `IList` object, it can be used to fill a drop-down list through its DataSource property.
 
 ```csharp
+using JereckNET.LicenseHerald;
+...
 public Form1(){
     var components = Assembly.GetExecutingAssembly().GetLicensedComponent();
 
@@ -77,6 +90,26 @@ private void comboBox1_SelectedIndexChanged(object sender, System.EventArgs e) {
 	textBox1.Text = component.License;
 }
 
+```
+
+### Components not using LicenceHerald
+Let's be honest : not everyone is already using LicenseHerald (as of this writing, there is a total of one component : this one).
+
+It is possible for a developper to add a LicensedComponent for an external component to his/her project by adding any number of `ComponentHeraldAttribute` to the project's `AssemblyInfo.cs` file.
+
+The components declared within the executing assembly (i.e. your project's application assembly) will also be returned by `GetLicensedComponent()`.
+
+#### Sample with Newtonsoft.Json
+```csharp
+using JereckNET.LicenseHerald;
+...
+[assembly:ComponentHerald(
+    "Newtonsoft.Json",
+    typeof(Newtonsoft.Json.JsonConvert), // Can reference any type from the external component
+    "https://www.newtonsoft.com/json",
+    typeof(MyProject.Properties.Resources),
+    nameof(MyProject.Properties.Resources.NewtonsoftJsonLicence)
+    )]
 ```
 
 ## License
