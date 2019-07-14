@@ -1,13 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LicenseHerald", "LicenseHerald\LicenseHerald.csproj", "{4D0A2BC4-B357-41A5-863B-5D9B76DFD82D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsumer", "TestConsumer\TestConsumer.csproj", "{11E185A0-FCAA-4B52-A764-2494F36202A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsumer", "TestConsumer\TestConsumer.csproj", "{11E185A0-FCAA-4B52-A764-2494F36202A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProducer", "TestProducer\TestProducer.csproj", "{F9A65296-6E10-4AE3-B25A-33139CF0F40B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProducer", "TestProducer\TestProducer.csproj", "{F9A65296-6E10-4AE3-B25A-33139CF0F40B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{242BD75B-CEDE-44A3-BEFB-D3A36C167498}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -12,8 +12,8 @@
     <Copyright>Copyright © Jereck.NET Consulting 2019</Copyright>
     <PackageProjectUrl>https://github.com/JereckNET/LicenseHerald</PackageProjectUrl>
     <PackageTags>Licences;</PackageTags>
-    <PackageLicenseUrl>https://github.com/JereckNET/LicenseHerald/blob/master/LICENSE.md</PackageLicenseUrl>
-    <PackageLicenseType>MIT</PackageLicenseType>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/JereckNET/LicenseHerald.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Description>Quickly advertise the licenses of the components used in your project.</Description>
